@@ -8,3 +8,35 @@ Author URI: http://us-themes.com/
 */
 
 /*Add your own styles here:*/
+
+/* Helpers */
+.verticle-middle-children > * {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1rem;
+}
+.space-children > * {
+  margin-right: 1rem;
+}
+.text-center {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 600px) {
+	.hide-mobile {
+		display: none;
+	}	
+}
+
+/* Overrides */
+.enlighter-default {
+	padding: 20px;
+}
+
+/* Home */
+.w-grid-item.post-403 a,
+.w-grid-item.post-403 img {
+	display: inline-block;
+	width: 100%;
+}
