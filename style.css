@@ -30,7 +30,7 @@ Author URI: http://us-themes.com/
 }
 
 /* Overrides */
-.enlighter-default {
+body .enlighter-default {
 	padding: 20px;
 }
 
@@ -39,4 +39,13 @@ Author URI: http://us-themes.com/
 .w-grid-item.post-403 img {
 	display: inline-block;
 	width: 100%;
+}
+
+/* Grids */
+/* Models */
+.layout_139 .usg_post_title_1 {
+	margin: 20px 0 !important;
+}
+.layout_139 > .w-grid-list > .w-grid-item {
+	margin-bottom: 20px;
 }
