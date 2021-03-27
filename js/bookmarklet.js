@@ -1,16 +1,22 @@
 /**
+ * 🚨 IMPORTANT - Use Semicolons here
+ * For simplicity, this script is naively minified with PHP on WordPress' end.
+ * If you ommit semicolons the script may fail
+ */
+
+/**
  * Loads Handsfree.js and all the logic required to run the bookmarklet
  */
 (function () {
   // Inject Handsfree
-  const $script = document.createElement('script')
-  const $link = document.createElement('link')
+  const $script = document.createElement('script');
+  const $link = document.createElement('link');
 
-  $script.src = 'https://unpkg.com/handsfree@8.4.3/build/lib/handsfree.js'
+  $script.src = 'https://unpkg.com/handsfree@8.4.3/build/lib/handsfree.js';
 
-  $link.setAttribute('rel', 'stylesheet')
-  $link.setAttribute('type', 'text/css')
-  $link.setAttribute('href', 'https://unpkg.com/handsfree@8.4.3/build/lib/assets/handsfree.css')
+  $link.setAttribute('rel', 'stylesheet');
+  $link.setAttribute('type', 'text/css');
+  $link.setAttribute('href', 'https://unpkg.com/handsfree@8.4.3/build/lib/assets/handsfree.css');
 
   /**
    * Configure Handsfree.js
@@ -19,15 +25,15 @@
     handsfree = new Handsfree({
       showDebug: true,
       hands: true
-    })
-    handsfree.enablePlugins('browser')
+    });
+    handsfree.enablePlugins('browser');
 
     // Position fix the debugger
-    handsfree.debug.$wrap.style.position = 'fixed'
-    handsfree.debug.$wrap.style.width = '480px'
-    handsfree.debug.$wrap.style.right = '0'
-    handsfree.debug.$wrap.style.bottom = '0'
-    handsfree.debug.$wrap.style.zIndex = '99999'
+    handsfree.debug.$wrap.style.position = 'fixed';
+    handsfree.debug.$wrap.style.width = '480px';
+    handsfree.debug.$wrap.style.right = '0';
+    handsfree.debug.$wrap.style.bottom = '0';
+    handsfree.debug.$wrap.style.zIndex = '99999';
 
     /**
      * Click and drag sketchfabs
@@ -36,26 +42,26 @@
       start: 'mousedown',
       held: 'mousemove',
       released: 'mouseup'
-    }
+    };
     handsfree.use('sketchfab', {
       onFrame: ({hands}) => {
-        if (!hands.pointer) return
+        if (!hands.pointer) return;
     
         // Pan the sketch
         if (hands.pointer[1].isVisible && hands.pinchState[1][0]) {
           // Get the event and element to send events to
-          const event = eventMap[hands.pinchState[1][0]]
-          const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+          const event = eventMap[hands.pinchState[1][0]];
+          const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y);
           
           // Dispatch the event
           if ($el) {
-            let $canvas
+            let $canvas;
             
             // Find the canvas inside the iframe
             if ($el.tagName.toLocaleLowerCase() === 'canvas' && $el.classList.contains('canvas')) {
-              $canvas = $el
+              $canvas = $el;
             } else if ($el.tagName.toLocaleLowerCase() === 'iframe' && $el.src.startsWith('https://sketchfab.com/models')) {
-              $canvas = $el.contentWindow.document.querySelector('canvas.canvas')
+              $canvas = $el.contentWindow.document.querySelector('canvas.canvas');
             }
   
             if ($canvas) {
@@ -66,15 +72,15 @@
                   clientX: hands.pointer[1].x,
                   clientY: hands.pointer[1].y
                 })
-              )  
+              );
             }
           }
         }
 
         // Click on things
         if (hands.pinchState[1][0] === 'start' && hands.pointer[1].x) {
-          const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
-          console.log($el, 'click')
+          const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y);
+          console.log($el, 'click');
           if ($el && $el.classList.contains('c-model-360-preview')) {
             $el.dispatchEvent(
               new MouseEvent('click', {
@@ -83,7 +89,7 @@
                 clientX: hands.pointer[1].x,
                 clientY: hands.pointer[1].y
               })
-            )
+            );
           }
         }
 
@@ -91,10 +97,10 @@
         if (hands.pinchState[0][3] === 'start') {
           document.dispatchEvent(new KeyboardEvent('keydown', {
             keyCode: 27
-          }))
+          }));
         }
       }
-    })
+    });
 
     /**
      * Update pinch scroll so that it only works with left hand
@@ -102,25 +108,25 @@
     handsfree.plugin.pinchScroll.onFrame = function ({hands}) {
       // Wait for other plugins to update
       setTimeout(() => {
-        if (!hands.pointer) return
-        const height = this.handsfree.debug.$canvas.hands.height
-        const width = this.handsfree.debug.$canvas.hands.width
+        if (!hands.pointer) return;
+        const height = this.handsfree.debug.$canvas.hands.height;
+        const width = this.handsfree.debug.$canvas.hands.width;
     
         hands.pointer.forEach((pointer, n) => {
           // Only left hand
-          if (n) return
+          if (n) return;
           
           // @fixme Get rid of n > origPinch.length
-          if (!pointer.isVisible || n > hands.origPinch.length) return
+          if (!pointer.isVisible || n > hands.origPinch.length) return;
     
           // Start scroll
           if (hands.pinchState[n]?.[0] === 'start') {
-            let $potTarget = document.elementFromPoint(pointer.x, pointer.y)
+            let $potTarget = document.elementFromPoint(pointer.x, pointer.y);
     
-            this.$target[n] = this.getTarget($potTarget)
-            this.tweenScroll[n].x = this.origScrollLeft[n] = this.getTargetScrollLeft(this.$target[n])
-            this.tweenScroll[n].y = this.origScrollTop[n] = this.getTargetScrollTop(this.$target[n])
-            this.handsfree.TweenMax.killTweensOf(this.tweenScroll[n])
+            this.$target[n] = this.getTarget($potTarget);
+            this.tweenScroll[n].x = this.origScrollLeft[n] = this.getTargetScrollLeft(this.$target[n]);
+            this.tweenScroll[n].y = this.origScrollTop[n] = this.getTargetScrollTop(this.$target[n]);
+            this.handsfree.TweenMax.killTweensOf(this.tweenScroll[n]);
           }
     
           if (hands.pinchState[n]?.[0] === 'held' && this.$target[n]) {
@@ -131,19 +137,19 @@
               overwrite: true,
               ease: 'linear.easeNone',
               immediateRender: true  
-            })
+            });
     
-            this.$target[n].scrollTo(this.tweenScroll[n].x, this.tweenScroll[n].y)
+            this.$target[n].scrollTo(this.tweenScroll[n].x, this.tweenScroll[n].y);
           }
-        })
-      })
+        });
+      });
     }
 
     // Start Handsfree
-    handsfree.start()
+    ;handsfree.start();
   }
 
   // Inject Handsfree.js
-  document.head.appendChild($link)
-  document.body.appendChild($script)
-})()
+  ;document.head.appendChild($link);
+  document.body.appendChild($script);
+})();
