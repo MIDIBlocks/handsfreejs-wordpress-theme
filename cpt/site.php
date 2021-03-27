@@ -28,3 +28,21 @@ add_shortcode('site-visit-links', function () {
     
   <?php return ob_get_clean();
 });
+
+/**
+ * Displays a bookmarklet as a button
+ */
+add_shortcode('site-bookmark', function () {
+  global $post;
+
+  ob_start(); ?>
+    <p>
+      <strong>Drag this to your bookmarks 👇</strong>
+    </p>
+    <div class="w-btn-wrapper width_auto align_left">
+      <a class="w-btn us-btn-style_1" href="#">
+        <span class="w-btn-label"><?= $post->post_title ?> 🖐👀🖐</span>
+      </a>
+    </div>
+  <?php return ob_get_clean();
+});
