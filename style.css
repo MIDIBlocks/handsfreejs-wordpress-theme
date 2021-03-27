@@ -10,6 +10,10 @@ Author URI: http://us-themes.com/
 /*Add your own styles here:*/
 
 /* Helpers */
+.vertical-middle {
+	display: inline-block;
+	vertical-align: middle !important;
+}
 .verticle-middle-children > * {
   display: inline-block;
   vertical-align: middle;
@@ -32,6 +36,10 @@ Author URI: http://us-themes.com/
 /* Overrides */
 body .enlighter-default {
 	padding: 20px;
+}
+
+body .w-btn {
+	cursor: pointer;
 }
 
 /* Home */

@@ -12,7 +12,7 @@ add_shortcode('handsfree', function ($atts) {
   ], $atts);
   
   ob_start(); ?>
-  <div class="w-btn-wrapper width_auto align_left">
+  <span class="w-btn-wrapper width_auto align_left vertical-middle vertical-middle-children">
     <?php # start ?>
     <span class="handsfree-show-when-stopped handsfree-hide-when-loading" onclick="handsfree.start()">
       <a class="w-btn us-btn-style_1">
@@ -31,6 +31,6 @@ add_shortcode('handsfree', function ($atts) {
         <span class="w-btn-label"><?= $atts['stop'] ?></span>
       </a>
     </span>
-  </div>
+  </span>
   <?php return ob_get_clean();
 });
