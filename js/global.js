@@ -1,14 +1,14 @@
 /**
  * Supress Twitter errors 
  */
-window.onerror = function () {
-  console.log('onERROR', arguments)
-  return false
-}
-window.addEventListener('error', function() {
-  console.log('ERROR LISTENER', arguments)
-  return false
-})
+// window.onerror = function () {
+//   console.log('onERROR', arguments)
+//   return false
+// }
+// window.addEventListener('error', function() {
+//   console.log('ERROR LISTENER', arguments)
+//   return false
+// })
 
 /**
  * Clear twitter errors
