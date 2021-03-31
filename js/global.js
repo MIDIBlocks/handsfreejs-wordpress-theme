@@ -1,6 +1,14 @@
 $ = jQuery
 ;(function () {
   /**
+   * Hide controls briefly on videos that autoplay on start don't briefly show controls
+   */
+  const $autoplayVideos = $('video[autoplay]')
+  setTimeout(() => {
+    $autoplayVideos.attr('controls', true)
+  }, 500)
+  
+  /**
    * Autoplay active video inside carousels
    */
   $('.owl-carousel').on('changed.owl.carousel', function () {

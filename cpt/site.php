@@ -31,15 +31,20 @@ add_shortcode('site-visit-links', function () {
 /**
  * Displays a video from a site
  */
-add_shortcode('site-card-media', function () {
+add_shortcode('site-card-media', function ($atts) {
   global $post;
+
+  $atts = shortcode_atts([
+    'autoplay' => false
+  ], $atts);
 
   $links = get_field('site_links_to_try');
   $html = '<p><strong>No media found</strong></p>';
+  $autoplayAndControls = $atts['autoplay'] ? 'autoplay' : 'controls';
 
   if (count($links) && $links[0]['site_link_video']):
     ob_start(); ?>
-      <video src="<?= $links[0]['site_link_video']['url'] ?>" controls muted loop></video>
+      <video src="<?= $links[0]['site_link_video']['url'] ?>" muted loop <?= $autoplayAndControls ?>></video>
     <?php $html = ob_get_clean();
   endif;
 
