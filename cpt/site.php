@@ -54,7 +54,7 @@ add_shortcode('site-card-media', function ($atts) {
 /**
  * Displays a random link from the site
  */
-add_shortcode('site-random-link', function () {
+add_shortcode('site-link', function () {
   global $post;
 
   $links = get_field('site_links_to_try');
@@ -67,4 +67,22 @@ add_shortcode('site-random-link', function () {
   endif;
 
   return $html;
+});
+
+/**
+ * Displays a random link with site description
+ */
+add_shortcode('site-link-description', function () {
+  global $post;
+
+  $links = get_field('site_links_to_try');
+  $html = '';
+
+  if (count($links) && $links[0]['site_link_description']):
+    ob_start(); ?>
+      <div><?= $links[0]['site_link_description'] ?></div>
+    <?php $html = ob_get_clean();
+  endif;
+
+  return do_shortcode($html);
 });
