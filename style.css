@@ -50,10 +50,35 @@ body .w-btn {
 }
 
 /* Grids */
+.l-section.narrow > .l-section-h {
+	max-width: 650px;
+}
+
 /* Models */
 .layout_139 .usg_post_title_1 {
 	margin: 20px 0 !important;
 }
 .layout_139 > .w-grid-list > .w-grid-item {
 	margin-bottom: 20px;
+}
+
+
+/* Newsletter */
+.mc4wp-form label {
+	display: flex;
+}
+.mc4wp-form input[type="submit"] {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+.mc4wp-alert.mc4wp-success {
+  background: #36c6b8;
+  padding: 10px;
+}
+
+/* Author Meta */
+.author-meta > img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
