@@ -42,6 +42,13 @@ body .w-btn {
 	cursor: pointer;
 }
 
+body .us-btn-style_1.active {
+	background: linear-gradient(135deg,#7049ba,#e95095) !important;
+	box-shadow: 0 0em 0em rgb(0 0 0 / 20%) !important;
+	border-color: transparent !important;
+	color: #ffffff !important;
+}
+
 /* Home */
 .w-grid-item.post-403 a,
 .w-grid-item.post-403 img {
@@ -89,4 +96,38 @@ body .w-btn {
 	content: '';
 	display: block;
 	clear: both;
+}
+
+/* Handsfree */
+.handsfree-show-when-loading {
+  display: none !important;
+}
+.handsfree-loading .handsfree-hide-when-loading {
+  display: none !important;
+}
+.handsfree-loading .handsfree-show-when-loading {
+  display: block !important;
+}
+.handsfree-loading a.handsfree-show-when-loading,
+.handsfree-loading button.handsfree-show-when-loading,
+.handsfree-loading span.handsfree-show-when-loading {
+  display: inline-block !important;
+}
+
+.handsfree-loading .handsfree-show-when-stopped {
+	display: none !important
+}
+
+/* Started/stop states */
+.handsfree-started .handsfree-show-when-stopped {
+  display: none !important;
+}
+.handsfree-show-when-started {
+  display: none !important;
+}
+.handsfree-started .handsfree-show-when-started {
+  display: initial !important;
+}
+.handsfree-loading .handsfree-show-when-loading {
+  display: initial !important;
 }
