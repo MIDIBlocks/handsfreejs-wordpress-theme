@@ -1,5 +1,79 @@
 [
     {
+        "key": "group_6099bfae241fb",
+        "title": "Handsfree.js Examples",
+        "fields": [
+            {
+                "key": "field_6099bfeed61d8",
+                "label": "Example Video",
+                "name": "handsfreejs_example_video",
+                "type": "oembed",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "width": "",
+                "height": ""
+            },
+            {
+                "key": "field_6099c0c4d48b0",
+                "label": "Example Link",
+                "name": "handsfreejs_example_link",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_6099c19163669",
+                "label": "Example Description",
+                "name": "handsfreejs_example_description",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "handsfreejs-examples"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_6047a3ca1ebbb",
         "title": "Models",
         "fields": [
@@ -337,45 +411,6 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "site"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": ""
-    },
-    {
-        "key": "group_604adb34475ac",
-        "title": "Social Media Posts",
-        "fields": [
-            {
-                "key": "field_604adb39e5c98",
-                "label": "URL",
-                "name": "social_media_post_url",
-                "type": "oembed",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "width": "",
-                "height": ""
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "social-media"
                 }
             ]
         ],
