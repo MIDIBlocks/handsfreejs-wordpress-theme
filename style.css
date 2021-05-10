@@ -61,6 +61,12 @@ body .us-btn-style_1.active {
 	max-width: 650px;
 }
 
+@media (max-width: 1450px) and (min-width: 768px) {
+	body .vc_col-sm-3, body .vc_col-sm-9 {
+    width: 50% !important;
+	}	
+}
+
 /* Models */
 .layout_139 .usg_post_title_1 {
 	margin: 20px 0 !important;
