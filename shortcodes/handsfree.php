@@ -6,9 +6,9 @@
  */
 add_shortcode('handsfree-button', function ($atts) {
   $atts = shortcode_atts([
-    'start' => 'Try this demo',
+    'start' => 'Enable Hand Tracking ✨👌',
     'loading' => 'Loading...',
-    'stop' => 'Stop this demo'
+    'stop' => 'Stop Hand Tracking'
   ], $atts);
   
   ob_start(); ?>
@@ -22,12 +22,13 @@ add_shortcode('handsfree-button', function ($atts) {
       <?php # loading ?>
       <span class="handsfree-show-when-loading">
         <a class="w-btn us-btn-style_1">
+          <i class="fas fa-circle-notch fa-spin"></i>
           <span class="w-btn-label"><?= $atts['loading'] ?></span>
         </a>
       </span>
       <?php # stop ?>
       <span class="handsfree-show-when-started handsfree-hide-when-loading">
-        <a class="w-btn us-btn-style_1" onclick="handsfree.stop()">
+        <a class="w-btn active us-btn-style_1" onclick="handsfree.stop()">
           <span class="w-btn-label"><?= $atts['stop'] ?></span>
         </a>
       </span>

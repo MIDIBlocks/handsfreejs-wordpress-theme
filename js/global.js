@@ -5,7 +5,7 @@ $ = jQuery
    */
   handsfree = new Handsfree({
     hands: true,
-    showDebugger: true
+    // showDebug: true
   })
   handsfree.enablePlugins('browser')
   
