@@ -1,6 +1,15 @@
 $ = jQuery
 ;(function () {
   /**
+   * Handsfree.js
+   */
+  handsfree = new Handsfree({
+    hands: true,
+    showDebugger: true
+  })
+  handsfree.enablePlugins('browser')
+  
+  /**
    * Hide controls briefly on videos that autoplay on start don't briefly show controls
    */
   const $autoplayVideos = $('video[autoplay]')
