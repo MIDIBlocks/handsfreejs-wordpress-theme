@@ -1,6 +1,15 @@
 $ = jQuery
 ;(function () {
   /**
+   * Handsfree.js
+   */
+  handsfree = new Handsfree({
+    hands: true,
+    // showDebug: true
+  })
+  handsfree.enablePlugins('browser')
+  
+  /**
    * Hide controls briefly on videos that autoplay on start don't briefly show controls
    */
   const $autoplayVideos = $('video[autoplay]')
@@ -26,7 +35,52 @@ $ = jQuery
       }, 250)
     })
   })
+
+  /**
+   * Confetti
+   * - if element has .handsfree-show-when-stopped then it'll get deferred until after running
+   */
+  $('.confetti-on-click').on('click', function () {
+    let bounds = this.getBoundingClientRect()
+    let config = {
+      particleCount: 200,
+      spread: 360,
+      ticks: 60,
+      startVelocity: 20,
+      origin: {
+        x: (bounds.x + bounds.width / 2) / window.innerWidth,
+        y: bounds.y / window.innerHeight
+      }
+    }
+    
+    // Shoot after handsfree receives data
+    if ($(this).hasClass('handsfree-show-when-stopped')) {
+      bounds = $('~ .handsfree-show-when-loading', this)[0].getBoundingClientRect()
+      config.origin.x = (bounds.x + bounds.width / 2) / window.innerWidth,
+      config.origin.y = bounds.y / window.innerHeight
+
+      handsfree.on('data', () => {
+        confetti(config)
+      }, {once: true})
+
+    // Shoot immediately
+    } else {
+      confetti(config)
+    }
+  })
 })();
+
+
+
+
+
+/**
+ * Random number between @min and @max
+ * @see https://stackoverflow.com/a/7228322
+ */
+function rand(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
 /**
  * Clear Twitter widget warnings and errors
