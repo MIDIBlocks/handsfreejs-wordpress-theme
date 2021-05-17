@@ -49,6 +49,10 @@ body .us-btn-style_1.active {
 	color: #ffffff !important;
 }
 
+table {
+	width: 100%
+}
+
 /* Home */
 .w-grid-item.post-403 a,
 .w-grid-item.post-403 img {
@@ -136,4 +140,20 @@ body .us-btn-style_1.active {
 }
 .handsfree-loading .handsfree-show-when-loading {
   display: initial !important;
+}
+
+
+
+/* Demos */
+/* Pinchers */
+.finger-pincher {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	background: #000;
+	margin: auto;
+}
+.finger-pincher:last-child {
+	background: #f00;
 }

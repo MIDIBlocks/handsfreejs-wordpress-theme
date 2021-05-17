@@ -6,6 +6,7 @@ include get_stylesheet_directory() . '/cpt/site.php';
 include get_stylesheet_directory() . '/shortcodes/global.php';
 include get_stylesheet_directory() . '/shortcodes/handsfree.php';
 include get_stylesheet_directory() . '/shortcodes/pixelfelt.php';
+include get_stylesheet_directory() . '/shortcodes/demo/pinchers.php';
 
 /**
  * Admin styles
