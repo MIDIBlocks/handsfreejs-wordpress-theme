@@ -1,6 +1,6 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="/wp-content/themes/handsfree.dev-wordpress-theme/lib/aframe.js"></script>
   </head>
   <body>
     <a-scene fog="type: exponential; color: #000; far: 30; density: 0.075">

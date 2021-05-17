@@ -5,7 +5,7 @@
  * Displays a Handsfree button
  */
 add_shortcode('handsfree-button', function ($atts) {
-  wp_enqueue_script('confetti', 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', [], null, true);
+  wp_enqueue_script('confetti', get_stylesheet_directory_uri() . '/lib/confetti.js', [], null, true);
   
   $atts = shortcode_atts([
     'start' => 'Enable Hand Tracking ✨👌',
