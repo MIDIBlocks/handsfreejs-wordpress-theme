@@ -11,5 +11,6 @@ add_shortcode('demo-p5-handtracking-draw', function () {
 
   ob_start(); ?>
     <div class="demo-p5-handtracking-draw"></div>
+    <p class="clear-demo-p5-handtracking-draw-wrap"><button class="w-btn us-btn-style_2">Clear</button></p>
   <?php return ob_get_clean();
 });

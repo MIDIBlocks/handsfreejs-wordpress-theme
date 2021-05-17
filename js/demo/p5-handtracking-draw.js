@@ -4,7 +4,7 @@ $('.demo-p5-handtracking-draw').each(function () {
     [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}],
     [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
   ]
-  
+
   this.p5 = new p5(function (p) {
     /** 
      * Setup
@@ -21,6 +21,11 @@ $('.demo-p5-handtracking-draw').each(function () {
         // Right fingertips
         [p.color(255, 0, 0), p.color(0, 255, 0), p.color(0, 0, 255), p.color(255, 255, 0)]
       ]
+
+      // Clear with button
+      $($this).next().find('button').on('click', function () {
+        p.background(255, 255, 255)
+      })
     }
 
     /**
