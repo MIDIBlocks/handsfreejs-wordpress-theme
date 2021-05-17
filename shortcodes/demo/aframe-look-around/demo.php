@@ -5,7 +5,7 @@
   <body>
     <a-scene fog="type: exponential; color: #000; far: 30; density: 0.075">
       <a-assets>
-        <img src="/wp-content/themes/pixelfelt-wordpress-theme/shortcodes/demo/aframe-look-around/grid-tile.png" id="grid">
+        <img src="/wp-content/themes/handsfree.dev-wordpress-theme/shortcodes/demo/aframe-look-around/grid-tile.png" id="grid">
       </a-assets>
       
       <a-entity id="rig" position="0 1 -5">
@@ -34,7 +34,7 @@
         geometry="primitive: plane; width: 10000; height: 10000;" rotation="0 0 0" position="0 0 -15"
         material="src: #grid; repeat: 10000 10000;"></a-entity>
 
-      <a-entity light="color: #000; intensity: 1; type: ambient;" visible=""></a-entity>
+      <a-entity light="color: #fff; intensity: 1; type: ambient;" visible=""></a-entity>
       <a-entity light="color: #000; intensity: 1.5" position="5 5 5"></a-entity>
       <a-entity light="color: #000; intensity: 0.5" position="-5 5 15"></a-entity>
       <a-entity light="color: #aaa; type: ambient;"></a-entity>
