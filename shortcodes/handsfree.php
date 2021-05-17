@@ -10,12 +10,13 @@ add_shortcode('handsfree-button', function ($atts) {
   $atts = shortcode_atts([
     'start' => 'Enable Hand Tracking ✨👌',
     'loading' => 'Loading...',
-    'stop' => 'Stop Hand Tracking'
+    'stop' => 'Stop Hand Tracking',
+    'update' => ''
   ], $atts);
   
   ob_start(); ?>
     <div class="w-btn-wrapper width_auto align_left">
-      <button class="w-btn us-btn-style_1 handsfree-show-when-stopped confetti-on-click" onclick="handsfree.start()">
+      <button class="w-btn us-btn-style_1 handsfree-show-when-stopped confetti-on-click" data-update="<?= htmlspecialchars($atts['update']) ?>" onclick="handsfree.update(jsonlite.parse(this.getAttribute('data-update'))); handsfree.start()">
         <span class="w-btn-label"><?= $atts['start'] ?></span>
       </button>
       <button class="w-btn us-btn-style_1 handsfree-show-when-loading">

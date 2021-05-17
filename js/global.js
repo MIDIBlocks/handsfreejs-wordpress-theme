@@ -82,6 +82,10 @@ function rand(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+
+
+
+
 /**
  * Clear Twitter widget warnings and errors
 function checkForTwitterErrors () {

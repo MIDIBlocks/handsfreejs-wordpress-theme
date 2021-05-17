@@ -21,6 +21,7 @@ add_action('admin_enqueue_scripts', function ($hook) {
  * Frontend
  */
 add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script('jsonlite', get_stylesheet_directory_uri() . '/js/jsonlite.js', [], null, true);
   wp_enqueue_script('handsfree', 'https://unpkg.com/handsfree@8.4.3/build/lib/handsfree.js', [], null, true);
   wp_enqueue_style('handsfree', 'https://unpkg.com/handsfree@8.4.3/build/lib/assets/handsfree.css');
   wp_enqueue_script('global_scripts', get_stylesheet_directory_uri() . '/js/global.js', ['jquery', 'handsfree'], null, true);
