@@ -157,3 +157,8 @@ table {
 .finger-pincher:last-child {
 	background: #f00;
 }
+
+/* P5 */
+.demo-p5-handtracking-draw {
+	box-shadow: 0 0 3px rgba(0,0,0,0.35);
+}
