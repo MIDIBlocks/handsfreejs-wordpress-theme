@@ -1,17 +1,14 @@
 $('.demo-p5-handtracking-draw').each(function () {
   let $this = this
-  let $bar = $('#wpadminbar')
   
   this.p5 = new p5(function (p) {
-    let $canvas
-    
     /** 
      * Setup
      * - Configure handsfree (set which models, plugins, and gestures you want to use)
      * - Create start/stop buttons. It's nice to always ask user for permission to start webcam :)
      */
     p.setup = function(){
-      $canvas = p.createCanvas($this.getBoundingClientRect().width, 400)
+      p.createCanvas($this.getBoundingClientRect().width, 400)
     
       // Colors for each fingertip
       colorMap = [
@@ -28,7 +25,9 @@ $('.demo-p5-handtracking-draw').each(function () {
     p.draw = function () {
       p.background('rgba(0,0,0,0)')
       p.clear()
-      p.fingerPaint()
+      fingerPaint()
+      mousePaint()
+      drawPaint()
     }
     
     /**
@@ -39,7 +38,7 @@ $('.demo-p5-handtracking-draw').each(function () {
     // Whenever we pinch and move we'll store those points as a set of [x1, y1, handIndex, fingerIndex, size]
     let paint = []
     
-    p.fingerPaint = function () {
+    const fingerPaint = function () {
       // Check for pinches and create dots if something is pinched
       const hands = handsfree.data?.hands
       let bounds = $this.getBoundingClientRect()
@@ -67,25 +66,38 @@ $('.demo-p5-handtracking-draw').each(function () {
         })  
       } 
         
-      // Draw the paint
-      paint.forEach((dot, i) => {
-        // Draw dot
-        p.fill(colorMap[dot[2]][dot[3]])
-        p.circle(dot[0], dot[1], dot[4])
-    
-        p.stroke(colorMap[dot[2]][dot[3]])
-        p.strokeWeight(dot[4])
-    
-        // Draw line
-        // if (i > 1) {
-        //   p.line($canvas.width - paint[i-1][0] * $canvas.width, paint[i-1][1] * $canvas.height, $canvas.width - paint[i][0] * $canvas.width, paint[i][1] * $canvas.height)
-        // }
-      })
-      
       // Clear everything if the left [0] pinky [3] is pinched
       if (hands?.pinchState && hands.pinchState[0][3] === 'released') {
         paint = []
       }
+    }
+
+    /**
+     * Draw the mouse
+     */
+    const mousePaint = function () {
+      if (p.mouseIsPressed === true) {
+        paint.push([p.mouseX, p.mouseY, 1, 0, 10])
+      }
+    }
+
+    /**
+     * Draw the paint
+     */
+    const drawPaint = function () {
+      // Draw the paint
+      paint.forEach((dot, i) => {
+        p.fill(colorMap[dot[2]][dot[3]])
+        p.stroke(colorMap[dot[2]][dot[3]])
+        p.strokeWeight(dot[4])
+    
+        // Draw line
+        if (i > 0) {
+          p.line(paint[i-1][0], paint[i-1][1], paint[i][0], paint[i][1])
+        } else {
+          p.circle(dot[0], dot[1], dot[4])
+        }
+      })      
     }
   }, this)
 })
