@@ -26,6 +26,10 @@ Author URI: http://us-themes.com/
   text-align: center;
 }
 
+.full-width-images img {
+	width: 100% !important;
+	height: auto !important
+}
 
 @media screen and (max-width: 600px) {
 	.hide-mobile {
@@ -60,6 +64,13 @@ table {
 .l-section.color_alternate .has_text_color h5,
 .l-section.color_alternate .has_text_color h6 {
 	color: #fff !important;
+}
+
+.w-hwrapper > .w-html {
+	margin-right: 5px;
+}
+.w-html + .w-post-elm {
+	line-height: 1.54
 }
 
 /* Home */
