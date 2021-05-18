@@ -7,7 +7,7 @@ include get_stylesheet_directory() . '/shortcodes/global.php';
 include get_stylesheet_directory() . '/shortcodes/handsfree.php';
 include get_stylesheet_directory() . '/shortcodes/pixelfelt.php';
 include get_stylesheet_directory() . '/shortcodes/demo/pinchers.php';
-include get_stylesheet_directory() . '/shortcodes/demo/p5-handtracking-draw.php';
+include get_stylesheet_directory() . '/shortcodes/demo/p5-handtracking-draw/index.php';
 include get_stylesheet_directory() . '/shortcodes/demo/aframe-look-around/index.php';
 
 /**
