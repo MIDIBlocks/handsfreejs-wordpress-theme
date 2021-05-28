@@ -201,7 +201,7 @@ handsfree.use('pinchScroll', {
    * Check recursively for a parent element with .handsfree-dont-scroll
    */
   checkDontScroll ($potTarget) {
-    if ($potTarget.classList.contains('handsfree-dont-scroll')) {
+    if ($potTarget && $potTarget.classList.contains('handsfree-dont-scroll')) {
       return false
     }
 

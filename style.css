@@ -31,6 +31,18 @@ Author URI: http://us-themes.com/
 	height: auto !important
 }
 
+input[type="checkbox"].big,
+input[type="radio"].big {
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+}
+
+input[type="text"].inline {
+	display: inline-block;
+	width: 120px
+}
+
 @media screen and (max-width: 600px) {
 	.hide-mobile {
 		display: none;
