@@ -172,7 +172,7 @@ const App = new Vue({
           shape += '<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>'
         }
 
-        document.querySelector('#currentShapeBox').innerHTML = shape
+        $('#currentShapeBox').html(shape)
       }
 
       // TensorFlow Handpose
@@ -239,7 +239,7 @@ const App = new Vue({
      * Displays a grid of all the shapes
      */
     renderRecording () {
-      this.$refs.recordingCanvasContainer.innerHTML = ''
+      $('#recordingCanvasContainer')[0].innerHTML = ''
       
       this.recordedShapes.forEach((recording, frame) => {
         const $wrap = document.createElement('DIV')
@@ -255,7 +255,7 @@ const App = new Vue({
         recording.removed && $canvas.classList.add('removed')
         
         $wrap.appendChild($canvas)
-        this.$refs.recordingCanvasContainer.appendChild($wrap)
+        $('#recordingCanvasContainer')[0].appendChild($wrap)
 
         this.renderHand($canvas, recording)
       })
@@ -556,7 +556,7 @@ const App = new Vue({
         vert: false
       }
 
-      this.$refs.recordingCanvasContainer.innerHTML = ''
+      $('#recordingCanvasContainer')[0].innerHTML = ''
       window.scrollTo(0, 0)
     }
   }
