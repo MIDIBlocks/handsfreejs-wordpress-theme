@@ -1,6 +1,7 @@
 $(function () {
   App = new Vue({
-    el: '#main',
+    el: '#page-content',
+
     filters: {
       prettyPrintJSON (obj) {return `handsfree.useGesture(${JSON.stringify(obj, null, 2)})`}
     },
@@ -88,30 +89,18 @@ $(function () {
      * Creates a plugins
      */
     mounted () {
-      // Recursive because of the way we're loading handsfree into the docs
-      const checkHandsfree = () => {
-        if (handsfree) {
-          // @fixme turn this into a vuex listener/dispatch
-          this.$nextTick(() => {
-            handsfree.use('displayShape', this.displayShape)
-            handsfree.use('recordShapes', {
-              enabled: false,
-              onFrame: handsfree.throttle(this.recordShapes, 100),
-              onEnable: this.resetShapes,
-              onDisable: this.stopRecordingShapes
-            })
-            handsfree.use('displayCurrentGesture', this.displayCurrentGesture)
+      handsfree.use('displayShape', this.displayShape)
+      handsfree.use('recordShapes', {
+        enabled: false,
+        onFrame: handsfree.throttle(this.recordShapes, 100),
+        onEnable: this.resetShapes,
+        onDisable: this.stopRecordingShapes
+      })
+      handsfree.use('displayCurrentGesture', this.displayCurrentGesture)
   
-            if (this.recordedShapes.length) {
-              this.renderRecording()
-            }
-          })
-        } else {
-          setTimeout(checkHandsfree, 5)
-        }
+      if (this.recordedShapes.length) {
+        this.renderRecording()
       }
-  
-      checkHandsfree()
     },
   
     destroyed () {
@@ -240,7 +229,7 @@ $(function () {
        * Displays a grid of all the shapes
        */
       renderRecording () {
-        $('#recordingCanvasContainer')[0].innerHTML = ''
+        this.$refs.recordingCanvasContainer.innerHTML = ''
         
         this.recordedShapes.forEach((recording, frame) => {
           const $wrap = document.createElement('DIV')
@@ -256,7 +245,7 @@ $(function () {
           recording.removed && $canvas.classList.add('removed')
           
           $wrap.appendChild($canvas)
-          $('#recordingCanvasContainer')[0].appendChild($wrap)
+          this.$refs.recordingCanvasContainer.appendChild($wrap)
   
           this.renderHand($canvas, recording)
         })
@@ -557,7 +546,7 @@ $(function () {
           vert: false
         }
   
-        $('#recordingCanvasContainer')[0].innerHTML = ''
+        this.$refs.recordingCanvasContainer.innerHTML = ''
         window.scrollTo(0, 0)
       }
     }

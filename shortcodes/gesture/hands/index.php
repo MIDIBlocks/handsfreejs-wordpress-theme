@@ -17,7 +17,7 @@ add_shortcode('gesture-mapper-hands-record', function () {
       <button disabled class="w-btn active us-btn-style_1 handsfree-show-when-loading"><Fa-Spinner spin /> Loading...</button>
     </div>
 
-    <div id="recordingCanvasContainer" class="row align-top"></div>
+    <div ref="recordingCanvasContainer" class="row align-top"></div>
 
     <div class="row align-top">
       <div class="col-6">

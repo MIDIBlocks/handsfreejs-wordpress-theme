@@ -78,6 +78,10 @@ table {
 	color: #fff !important;
 }
 
+body .l-section-img {
+	opacity: 1
+}
+
 .w-hwrapper > .w-html {
 	margin-right: 5px;
 }
