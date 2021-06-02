@@ -87,6 +87,35 @@ function rand(min, max) { // min and max included
 
 
 
+
+/**
+ * Enlighter Backup and Restore
+ * - This is needed to prevent Vue from removing whitespaces during a mount
+ */
+enlighterCodeBackups = []
+
+/**
+ * Step 1: Call this before new Vue()
+ */
+function enlighterBackup () {
+  $('.enlighter-default').each(function () {
+    let $this = $(this)
+    enlighterCodeBackups.push($this.html())
+  })
+}
+
+/**
+ * Step 2: Call this inside the Vue's mounted event
+ */
+function enlighterRestoreBackups () {
+  $('.enlighter-default').each(function () {
+    $(this).html(enlighterCodeBackups.shift())
+  })
+}
+
+
+
+
 /**
  * Overwrite pinchScroll so that it doesn't scroll while painting
  */

@@ -1,4 +1,6 @@
 $(function () {
+  enlighterBackup()
+
   App = new Vue({
     el: '#page-content',
 
@@ -101,6 +103,15 @@ $(function () {
       if (this.recordedShapes.length) {
         this.renderRecording()
       }
+
+      // Reposition debugger
+      handsfree.disablePlugins('browser')
+      handsfree.showDebugger()
+      const $debugger = document.querySelector('#debugger')
+      $debugger && $debugger.appendChild(handsfree.debug.$wrap)
+    
+      // Restore Enlighters
+      enlighterRestoreBackups()
     },
   
     destroyed () {
