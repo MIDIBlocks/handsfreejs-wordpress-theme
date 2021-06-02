@@ -1,6 +1,6 @@
 $(function () {
   enlighterBackup()
-    
+
   App = new Vue({
     el: '#page-content',
 
@@ -104,6 +104,11 @@ $(function () {
         this.renderRecording()
       }
 
+      // Reposition debugger
+      handsfree.showDebugger()
+      const $debugger = document.querySelector('#debugger')
+      $debugger && $debugger.appendChild(handsfree.debug.$wrap)
+    
       // Restore Enlighters
       enlighterRestoreBackups()
     },

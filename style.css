@@ -215,3 +215,10 @@ body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-
 body:not(.handsfree-model-hands).handsfree-loading .handsfree-show-start-when-no-hands .handsfree-show-when-stopped {display: none !important;}
 body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-show-when-started {display: none !important;}
 
+/* Debugger */
+#debugger {
+	background: #222;
+}
+#debugger > .handsfree-debugger {
+	opacity: 0.3
+}
