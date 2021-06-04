@@ -3,13 +3,17 @@
 include get_stylesheet_directory() . '/cpt/handsfreejs-example.php';
 include get_stylesheet_directory() . '/cpt/plugin.php';
 include get_stylesheet_directory() . '/cpt/site.php';
+
 include get_stylesheet_directory() . '/shortcodes/global.php';
 include get_stylesheet_directory() . '/shortcodes/handsfree.php';
 include get_stylesheet_directory() . '/shortcodes/pixelfelt.php';
+
 include get_stylesheet_directory() . '/shortcodes/demo/plugin/pinchClick/index.php';
 include get_stylesheet_directory() . '/shortcodes/demo/plugin/pinchers.php';
 include get_stylesheet_directory() . '/shortcodes/demo/p5-handtracking-draw/index.php';
 include get_stylesheet_directory() . '/shortcodes/demo/aframe-look-around/index.php';
+include get_stylesheet_directory() . '/shortcodes/demo/threejs-fps/index.php';
+
 include get_stylesheet_directory() . '/shortcodes/gesture/hands/index.php';
 
 /**
