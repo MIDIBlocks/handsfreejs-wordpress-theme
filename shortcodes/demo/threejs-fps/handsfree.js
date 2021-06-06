@@ -37,7 +37,7 @@ handsfree.use('moveTurnJump', ({weboji}) => {
   // Rotation
   window.handsfree.TweenMax.to(tween, 1, {
     pitch: -weboji.rotation[0] * 3,
-    yaw: -weboji.rotation[1] * 8,
+    yaw: -weboji.rotation[1] * 6,
     roll: weboji.rotation[2] * 3
   })
   camera.rotation.x = tween.pitch
